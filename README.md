@@ -122,6 +122,15 @@ New York City, Los Angeles, and Seattle demonstrate the highest total profit. Ho
 
 ![Top 10 cities by profit](images/top_10_cities_by_profit.png)
 
+### 6. Correlation Matrix
+![Correlation Matrix](images/correlation_matrix.png)
+
+### 7. Top 10 Products by Profit
+![Top 10 Products by Profit](images/top_10_by_profit.png)
+
+### 8. Bottom 10 Products by Profit
+![Bottom 10 Products by Profit](images/bottom_10_by_profit.png)
+
 ## Results
 
 The analysis identified several important business insights:
