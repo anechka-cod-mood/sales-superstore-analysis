@@ -6,6 +6,30 @@ This project presents an exploratory data analysis (EDA) of the Sample Superstor
 
 The main goal is to identify factors influencing sales performance and profitability and provide business recommendations.
 
+## Repository Structure
+
+sales-superstore-analysis/
+│
+├── data/
+│   └── Sample - Superstore.csv
+│
+├── images/
+│   ├── sales_by_year.png
+│   ├── profit_by_category.png
+│   ├── profit_margin_by_segment.png
+│   ├── discount_impact_on_profit.png
+│   ├── top_10_cities_by_profit.png
+│   ├── correlation_matrix.png
+│   ├── top_10_by_profit.png
+│   └── bottom_10_by_profit.png
+│
+├── report/
+│   └── Sales_Superstore_Report.docx
+│
+├── main.py
+├── requirements.txt
+└── README.md
+
 ## Dataset
 
 The dataset contains:
@@ -52,13 +76,6 @@ The project includes:
 - Furniture has high sales volume but low profit margin.
 - Some cities generate high revenue but require profitability optimization.
 
-## Business Recommendations
-
-- Review discount strategies.
-- Improve Furniture profitability.
-- Analyze low-margin customers.
-- Optimize seasonal inventory planning.
-
 ## Visualizations
 
 ### 1. Sales Trend by Year
@@ -104,3 +121,38 @@ This horizontal bar chart presents the most profitable cities based on total pro
 New York City, Los Angeles, and Seattle demonstrate the highest total profit. However, profitability efficiency should also be considered alongside sales volume.
 
 ![Top 10 cities by profit](images/top_10_cities_by_profit.png)
+
+## Results
+
+The analysis identified several important business insights:
+
+- Technology is the most profitable product category.
+- Furniture has high sales volume but low profitability.
+- Discounts above 30% are associated with negative average profit.
+- Sales have a moderate positive correlation with profit (r = 0.48).
+- New York City, Los Angeles, and Seattle generate the highest total profit.
+- Several products consistently generate financial losses and require pricing or inventory review.
+
+## Business Recommendations
+
+Based on the analysis, the following recommendations can be made:
+
+1. Improve Furniture profitability through pricing and cost optimization.
+2. Review discount policies, especially discounts above 30%.
+3. Focus marketing efforts on highly profitable Technology products.
+4. Investigate loss-making products and determine whether they should be repriced or discontinued.
+5. Analyze profitability in large cities where sales are high but margins remain relatively low.
+6. Continue monitoring seasonal sales trends to improve inventory planning.
+
+
+---
+
+## Future Improvements
+
+Possible future extensions of this project:
+
+- Interactive Power BI dashboard
+- Predictive machine learning models
+- Statistical hypothesis testing
+- Customer lifetime value analysis
+- Sales forecasting

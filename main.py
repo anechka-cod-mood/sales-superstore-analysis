@@ -354,4 +354,96 @@ plt.savefig(
     dpi=300,
     bbox_inches='tight'
 )
+#plt.show()
+
+#==============
+#6.Statistical analysis
+#==============
+
+#6.1 Coreletion matrix
+numeric_sales=sales.select_dtypes(include='number')
+correlation_matrix=numeric_sales.corr()
+print(correlation_matrix)
+plt.figure(figsize=(8,5))
+
+sns.heatmap(
+    correlation_matrix,
+    vmin=-1,
+    vmax=1,
+    annot=True,
+    fmt='.2f',
+    cmap='coolwarm'
+)
+
+plt.title('Correlation Matrix of Numerical Features')
+plt.tight_layout()
+plt.savefig(
+    'images/correlation_matrix.png',
+    dpi=300,
+    bbox_inches='tight'
+)
+#plt.show()
+
+#==========
+###Correlation with profit
+profit_corr=correlation_matrix['Profit'].sort_values(ascending=False)
+print(tabulate(profit_corr.reset_index(),
+               headers='keys',
+               tablefmt='tsv',))
+#Grafic
+profit_corr_plot=profit_corr.reset_index()
+plt.figure(figsize=(8,5))
+bars=plt.barh(
+    profit_corr_plot['index'],
+    profit_corr_plot['Profit']
+)
+plt.title('Correlation with Profit')
+plt.tight_layout()
+plt.savefig(
+    'images/corr_with_profit',
+    dpi=300,
+    bbox_inches='tight'
+)
+#plt.show()
+
+#=========
+#Top 10 products by profit
+top_product=sales.groupby('Product Name')['Profit'].sum().sort_values(ascending=False)
+print(tabulate(top_product.head(10).reset_index(),headers='keys',tablefmt='tsv'))
+print(tabulate(top_product.tail(10).reset_index(),headers='keys',tablefmt='tsv'))
+
+#Grafic TOP
+plt.figure(figsize=(12,6))
+top_product_plot=top_product.head(10).reset_index()
+bars=plt.barh(
+    top_product_plot['Product Name'],
+    top_product_plot['Profit']
+)
+plt.title('Top 10 Products by Profit')
+plt.xlabel('Profit ($)')
+plt.ylabel('Product')
+plt.grid()
+plt.tight_layout()
+plt.savefig(
+    'images/top_10_by_profit.png',
+    dpi=300,
+    bbox_inches='tight'
+)
+# Grafic BOTTOM
+plt.figure(figsize=(12,6))
+top_product_plot=top_product.tail(10).reset_index()
+bars=plt.barh(
+    top_product_plot['Product Name'],
+    top_product_plot['Profit']
+)
+plt.title('Bottom 10 Products by Profit')
+plt.grid()
+plt.xlabel('Profit ($)')
+plt.ylabel('Product')
+plt.tight_layout()
+plt.savefig(
+    'images/bottom_10_by_profit.png',
+    dpi=300,
+    bbox_inches='tight'
+)
 plt.show()
